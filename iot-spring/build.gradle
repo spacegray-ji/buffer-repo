@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.1'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'iot'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral() // Maven 중앙 저장소 사용
+}
+
+dependencies {
+	// MySQL 커넥터 의존성 추가
+	implementation 'mysql:mysql-connector-java:8.0.29' // 실제 버전 사용
+
+	// Spring Boot 관련 의존성들 추가
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+jar {
+	manifest {
+		attributes 'Main-Class':'come.test.gradle.IotSpringApplicatoin'
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>You type it, we post it!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+
+        .container {
+            padding: 5%;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        h1, h6 {
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .create-post-button {
+            display: inline-block;
+            padding: 4px 7px;
+            margin-right: 0; /* 수정: 오른쪽 마진 제거 */
+            text-decoration: none;
+            color: white;
+            background-color: #045dcd;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 10px;
+        }
+
+        .about-site-button {
+            display: inline-block;
+            padding: 4px 7px;
+            margin-left: 0;
+            margin-right: 0; /* 수정: 오른쪽 마진 제거 */
+            text-decoration: none;
+            color: white;
+            background-color: #045dcd;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1 style="
+    margin-bottom: 0px;
+    margin-top: 0px;
+">You type it, we post it!</h1>
+        <p style="
+    margin-top: 0px;
+    margin-bottom: 0px;
+">
+        <h6 style="
+    margin-top: 0px;
+    margin-bottom: 7px;
+">Exciting Amazing!</h6>
+        <a href="/messages" class="create-post-button">Get started</a>
+        <a href="https://www.sch.ac.kr/" class="about-site-button">About this site</a>
+        </p>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

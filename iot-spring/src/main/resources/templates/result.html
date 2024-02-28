@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .additional-content {
+            margin-top: 10px;
+        }
+
+        .additional-content h2 {
+            font-weight: bold;
+            width: 55%;
+        }
+
+        .additional-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .additional-content th, .additional-content td {
+            border: none; /* 표의 선 제거 */
+            padding: 6px;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        /* 1열의 스타일 */
+        .additional-content .left-col {
+            width: 40%;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* 2열의 스타일 */
+        .additional-content .right-col {
+            max-width: 150px; /* 최대 가로 길이 설정 */
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+            overflow: hidden; /* 텍스트 넘침 처리 */
+            text-overflow: ellipsis; /* 넘친 텍스트 대체 */
+        }
+
+        .home-link {
+            text-decoration: none;
+            width: 8px;
+            vertical-align: top; /* 추가: 위로 정렬 */
+            text-align: right; /* 버튼 오른쪽 정렬 */
+        }
+
+        .home-link button {
+            text-decoration: none;
+            padding: 4px 16px;
+            background-color: #045dcd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 385px;
+        }
+    </style>
+</head>
+<body>
+<br/><br/>
+<div class="container">
+    <!-- 등록된 내용 표시 -->
+    <div class="additional-content">
+        <h2 style="margin-bottom: 0px;margin-top: 0px;">Messages</h2>
+        <table>
+            <tbody>
+            <!-- 최근에 추가된 멤버 정보 표시 -->
+            <tr>
+                <td class="left-col">ID</td>
+                <td class="right-col" th:text="${member.id}"></td> <!-- 수정: member 객체 사용 -->
+            </tr>
+            <tr>
+                <td class="left-col">Date</td>
+                <td class="right-col"> <!-- 수정: createdAt 속성에 접근 -->
+                    <span th:text="${#temporals.format(member.createdAt, 'yyyy-MM-dd HH:mm:ss', T(java.time.ZoneId).systemDefault())}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">MSG</td>
+                <td class="right-col" th:text="${member.name}"></td> <!-- 수정: member 객체 사용 -->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="home-link">
+        <button type="button">Home</button>
+    </a>
+</div>
+</body>
+</html>
