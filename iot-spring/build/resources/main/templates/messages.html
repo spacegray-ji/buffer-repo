@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: left;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        input[type="text"] {
+            background-color: white; /* 입력 칸의 배경색 */
+            color: black; /* 입력 칸의 글자색 */
+        }
+
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 82px); /* Send 버튼의 너비(10px 패딩*2 + 5px 마진*2 + 52px) 만큼 감소 */
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 0px;
+        }
+
+        button {
+            padding: 10px;
+            box-sizing: border-box;
+            display: inline-block; /* 수정: 인라인 블록 요소로 변경하여 나란히 표시 */
+            width: 50px; /* 수정: 버튼의 너비를 50px로 설정 */
+            margin-left: 10px; /* 수정: 왼쪽 마진 추가하여 입력창과 간격 유지 */
+            background-color: rgba(180, 175, 175, 0.34);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px; /* 수정: 글자 크기 조절 */
+        }
+
+        h5, h4 {
+            margin-top: 20px; /* 수정: 위쪽 여백 추가 */
+            font-size: 18px; /* 수정: 글자 크기 조절 */
+            font-weight: normal; /* 수정: 글자 두께 조절 */
+        }
+
+        .additional-content {
+            margin-top: 10px;
+        }
+
+        .additional-content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .additional-content th, .additional-content td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .additional-content td {
+            font-size: 14px;
+        }
+
+        .home-link {
+            text-decoration: none;
+        }
+
+        .home-link button {
+            text-decoration: none;
+            color: white;
+            background-color: #045dcd;
+        }
+    </style>
+</head>
+<body>
+</br>
+</br>
+<div class="container">
+    <form action="/messages" method="post" class="form-group">
+        <label for="name" style="
+    margin-bottom: 0px;
+">Messages</label>
+        <h6 style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+">Enter your message below:</h6>
+        <input type="text" id="name" name="name" placeholder="Write down the contents">
+        <button type="submit">전송</button>
+        <h6 style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+">Here are some other messages, too:</h6>
+    </form>
+
+    <!-- 등록된 내용 표시 -->
+    <div class="additional-content">
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>content</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member, iterStat : ${members}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </br>
+    <a href="/" class="home-link">
+        <button type="button" style="
+    padding-left: 10px;
+    border-left-width: 0px;
+    margin-left: 0px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+">Home</button>
+    </a>
+</div> <!-- /container -->
+</body>
+</html>
